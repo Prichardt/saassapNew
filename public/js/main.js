@@ -76,10 +76,11 @@ $(window).scroll(function() {
                                             <input type='date' class='form-control' required name='experience[${n + 1}][termination-date]' id='termination-date-1' placeholder='Termination Date:'>
                                         </span>
                                     </div>
+                                      <div class='form-group col-md-12'>
+                                    <input type='text' class='form-control' required name='experience[${n + 1}][duties]' id='duties-1' placeholder='Duties & Responsibilities'>
+                                </div>
                                     </div>
-                                    <div class='row'>
-                                    <input type='text' class='form-control' required name='experience[1][duties]' id='duties-1' placeholder='Duties & Responsibilities'>
-                                </div>`;
+                                  `;
             $('#experience-fields').append(newFields);
           
         });
@@ -97,19 +98,19 @@ $(window).scroll(function() {
             let n = $("#reference-fields .row").length;
             let newFields = `<div class='row'>
                                     <div class='form-group col-md-3'>
-                                        <input type='text' class='form-control' required name='references[1][refname]' id='refname-1' placeholder='Name & Surname:'>
+                                        <input type='text' class='form-control' required name='references[${n + 1}][refname]' id='refname-1' placeholder='Name & Surname:'>
                                     </div>
                                     <div class='form-group col-md-2'>
-                                        <input type='text' class='form-control' required name='references[1][ref-position]' id='ref-position-1' placeholder='Position'>
+                                        <input type='text' class='form-control' required name='references[${n + 1}][ref-position]' id='ref-position-1' placeholder='Position'>
                                     </div>
                                     <div class='form-group col-md-3'>
-                                        <input type='text' class='form-control' required name='references[1][ref-organisation]' id='ref-organisation-1' placeholder='Organisation'>
+                                        <input type='text' class='form-control' required name='references[${n + 1}][ref-organisation]' id='ref-organisation-1' placeholder='Organisation'>
                                     </div>
                                     <div class='form-group col-md-2'>
-                                        <input type='number' class='form-control' required name='references[1][ref-phone]' id='ref-phone-1' placeholder='Phone'>
+                                        <input type='number' class='form-control' required name='references[${n + 1}][ref-phone]' id='ref-phone-1' placeholder='Phone'>
                                     </div>
                                     <div class='form-group col-md-2'>
-                                        <input type='text' class='form-control' required name='references[1][ref-email]' id='email-1' placeholder='Email'>
+                                        <input type='text' class='form-control' required name='references[${n + 1}][ref-email]' id='email-1' placeholder='Email'>
                                     </div>
                                 </div>`;
             $('#reference-fields').append(newFields);
@@ -129,12 +130,12 @@ $(window).scroll(function() {
             let n = $("#affiliation-fields .row").length;
             let newFields = `<div class="row">
                                     <div class="form-group col-md-6">
-                                        <input type="text" class="form-control" required name="orgarnisation" id="orgarnisation" placeholder="Orgarnisation">
+                                        <input type="text" class="form-control" required name="affiliation[${n + 1}][orgarnisation]" id="orgarnisation" placeholder="Orgarnisation">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <span class=" d-inline-flex">Affiliation/Membership Date: </span>
                                         <span class=" d-inline-flex">
-                                            <input type="date" class="form-control" id="affiliation-date" required name="affiliation-date" placeholder="Affiliation Date:">
+                                            <input type="date" class="form-control" id="affiliation-date" required name="affiliation[${n + 1}][date]" placeholder="Affiliation Date:">
                                         </span>
                                     </div>
                                 </div>`;

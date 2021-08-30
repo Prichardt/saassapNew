@@ -22,10 +22,12 @@ private $model;
         
        $msg = $this->model->insertData();
         $data = array(
-            "pageName"=>"Contact Us",
+            "pageName"=>"Application for Employment",
             "sendMsg" => $msg
         );
-        $this->view->renderTemplate('application-for-employment/index.html', $data);
+
+        header("Location: http://saasap.local/application-for-employment");
+        // $this->view->renderTemplate('application-for-employment/index.html', $data);
     }
 
     

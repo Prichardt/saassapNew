@@ -8,7 +8,6 @@ body {
   font-size: 15px;
   line-height: 1.8;
   font-weight: 400;
-  color: #b3b3b3;
 }
 
 body.menu-show {
@@ -433,6 +432,11 @@ h5,
 
 .black-bg {
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+.application-page blockquote {
+  margin: none !important;
+  font-size: 1.45rem;
 }
 
 .application-page form {

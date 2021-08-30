@@ -25,7 +25,6 @@ body {
     font-size: 15px;
     line-height: 1.8;
     font-weight: 400;
-    color: lighten($black, 70%);
 
     &.menu-show {
         overflow: hidden;
@@ -521,6 +520,10 @@ h5,
 }
 
 .application-page{
+    blockquote {
+        margin: none!important;
+        font-size: 1.45rem;
+    }
     form{
         padding: 2rem;
         background-color: #D6E2E3;
@@ -528,6 +531,7 @@ h5,
         
 
         input[type="button"] {
+            
             background-color: #375D86;
             color: #ffffff;
             border-radius: 5px;
@@ -538,6 +542,7 @@ h5,
                 color: #375D86;
             }
         }
+
 
         .btn-submit{
             background-color: #375D86;
