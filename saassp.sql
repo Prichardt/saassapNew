@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2021 at 12:55 AM
+-- Generation Time: Sep 05, 2021 at 12:38 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `saassp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `documents`
+--
+
+CREATE TABLE `documents` (
+  `id` int(11) NOT NULL,
+  `personalId` int(250) NOT NULL,
+  `path` varchar(250) NOT NULL,
+  `images` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `documents`
+--
+
+INSERT INTO `documents` (`id`, `personalId`, `path`, `images`) VALUES
+(4, 66, 'public/upload/66', '[\"ODYSSEY OVERVIEW_opt.pdf\",\"ODYSSEY OVERVIEW_opt_opt.pdf\"]'),
+(5, 68, 'public/upload/68', '[\"ODYSSEY OVERVIEW_opt.pdf\",\"ODYSSEY OVERVIEW_opt_opt.pdf\"]'),
+(6, 70, 'public/upload/70', '[\"ODYSSEY OVERVIEW_opt.pdf\",\"ODYSSEY OVERVIEW_opt_opt.pdf\"]'),
+(7, 71, 'public/upload/71', '[\"ODYSSEY OVERVIEW_opt.pdf\",\"ODYSSEY OVERVIEW_opt_opt.pdf\"]'),
+(8, 72, 'public/upload/72', '[\"ODYSSEY OVERVIEW_opt.pdf\",\"ODYSSEY OVERVIEW_opt_opt.pdf\"]'),
+(9, 73, 'public/upload/73', '[\"ODYSSEY OVERVIEW_opt.pdf\",\"ODYSSEY OVERVIEW_opt_opt.pdf\"]');
 
 -- --------------------------------------------------------
 
@@ -83,24 +108,6 @@ CREATE TABLE `personaldetails` (
   `drugScreening` varchar(250) NOT NULL,
   `personalId` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `personaldetails`
---
-
-INSERT INTO `personaldetails` (`title`, `firstName`, `lastName`, `cellphoneNumber`, `telephoneNumber`, `email`, `citizenship`, `criminalOffense`, `drugScreening`, `personalId`) VALUES
-('Mr', 'Prichard', 'Mukombi', '0848444486', '0848444486', 'prichard@artinvoyage.com', 'Zimbabwean', 'Yes', 'Yes', 1),
-('Mr', 'Prichard', 'Mukombi', '0848444486', '0848444486', 'prichard@artinvoyage.com', 'Zimbabwean', 'Yes', 'Yes', 2),
-('Mr', 'Prichard', 'Mukombi', '0848444486', '0848444486', 'prichard@artinvoyage.com', 'Zimbabwean', 'Yes', 'Yes', 3),
-('Mr', 'Prichard', 'Mukombi', '0848444486', '0848444486', 'prichard@artinvoyage.com', 'Zimbabwean', 'Yes', 'Yes', 4),
-('Mr', 'Prichard', 'Mukombi', '0848444486', '0848444486', 'prichard@artinvoyage.com', 'Zimbabwean', 'Yes', 'Yes', 5),
-('Mr', 'Prichard', 'Mukombi', '0848444486', '0848444486', 'prichard@artinvoyage.com', 'Zimbabwean', 'Yes', 'Yes', 6),
-('Mr', 'Prichard', 'Mukombi', '0848444486', '0848444486', 'prichard@artinvoyage.com', 'Zimbabwean', 'Yes', 'Yes', 7),
-('Mr', 'Prichard', 'Mukombi', '0848444486', '0848444486', 'prichard@artinvoyage.com', 'Zimbabwean', 'Yes', 'Yes', 8),
-('Mr', 'Prichard', 'Mukombi', '0848444486', '0848444486', 'prichard@artinvoyage.com', 'Zimbabwean', 'Yes', 'Yes', 9),
-('Mr', 'Prichard', 'Mukombi', '0848444486', '0848444486', 'prichard@artinvoyage.com', 'Zimbabwean', 'Yes', 'Yes', 10),
-('Mr', 'Prichard', 'Mukombi', '0848444486', '0848444486', 'prichard@artinvoyage.com', 'Zimbabwean', 'Yes', 'Yes', 11),
-('Mr', 'Prichard', 'Mukombi', '0848444486', '0848444486', 'prichard@artinvoyage.com', 'Zimbabwean', 'Yes', 'Yes', 12);
 
 -- --------------------------------------------------------
 
@@ -171,6 +178,12 @@ CREATE TABLE `residentialaddress` (
 --
 
 --
+-- Indexes for table `documents`
+--
+ALTER TABLE `documents`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `educational`
 --
 ALTER TABLE `educational`
@@ -223,52 +236,58 @@ ALTER TABLE `residentialaddress`
 --
 
 --
+-- AUTO_INCREMENT for table `documents`
+--
+ALTER TABLE `documents`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `educational`
 --
 ALTER TABLE `educational`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `employmenthistory`
 --
 ALTER TABLE `employmenthistory`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `membership`
 --
 ALTER TABLE `membership`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `personaldetails`
 --
 ALTER TABLE `personaldetails`
-  MODIFY `personalId` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `personalId` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `personalreferences`
 --
 ALTER TABLE `personalreferences`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `positionavailability`
 --
 ALTER TABLE `positionavailability`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `postaladdress`
 --
 ALTER TABLE `postaladdress`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `residentialaddress`
 --
 ALTER TABLE `residentialaddress`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

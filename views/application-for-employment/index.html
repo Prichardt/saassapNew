@@ -2,7 +2,7 @@
 metaDescription %}"PHP mvc website template by Prichard Mukombi"{% endblock %}
 {% block body%}
 
-
+ {{ sendMsg }}
 
 <section class="  bg-white saassap application-page">
     <div class=" container pb-5 pt-2 ">
@@ -12,7 +12,7 @@ metaDescription %}"PHP mvc website template by Prichard Mukombi"{% endblock %}
                 
             </blockquote>
         </div>
-        <form class="quote_form shadow-sm" action="application-for-employment/send" method="POST">
+        <form class="quote_form shadow-sm" action="application-for-employment/send" method="POST" enctype="multipart/form-data">
             <div>
                 <!-- STEP ONE OF REQUEST QUOTE FORM -->
                 <div>
@@ -24,6 +24,7 @@ metaDescription %}"PHP mvc website template by Prichard Mukombi"{% endblock %}
                             <footer class="blockquote-footer h2">Personal Information</footer>
 
                         </blockquote>
+                       
                     </div>
                     <div>
                         <div class="row">
@@ -475,10 +476,9 @@ metaDescription %}"PHP mvc website template by Prichard Mukombi"{% endblock %}
                                     Please attach your Cover Letter; Resume; Certificates; ID & Driver’s Licence:
                                 </span>
                                 <div class="col-md-4">
-                                    <input type="file" name="fileToUpload[]" id="fileToUpload">
+                                    <input type="file" name="file[]" id="file" multiple>
                                 </div>
                             </div>
-
                         </section>
                         <br />
                         <!-- DISCLAIMER -->

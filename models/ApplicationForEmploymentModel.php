@@ -1,4 +1,9 @@
 <?php
+
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 class ApplicationForEmploymentModel extends Model
 {
 
@@ -218,9 +223,68 @@ mysqli_query($this->database->getConnection(), $sql4);
             mysqli_query($this->database->getConnection(), $sql12345);
         }
 
+ 
 
-        // echo json_encode($qualifications).' ID : =='.$last_id;
 
-        return json_encode($qualifications);
+            //Create an instance; passing `true` enables exceptions
+   $mail = new PHPMailer();
+
+    //Server settings
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'mail.mukombi.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'sassap@mukombi.com';                     //SMTP username
+    $mail->Password   = 'tatenda@12345';                               //SMTP password
+    $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
+    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+    //Recipients
+    $mail->setFrom('sassap@mukombi.com', 'Mailer');
+    $mail->addAddress('prichard@mukombi.com', 'Prichard Mukombi');     //Add a recipient
+    $mail->addReplyTo('info@mukombi.com', 'Information');
+    $mail->addCC('prichard@heavenilytech.co.za');
+
+    //Attachments
+          $documents = array();
+                  // Count total files
+          $countFiles = count($_FILES['file']['name']);
+          $target_dir1 = "public/upload/".$last_id ;
+          mkdir($target_dir1);
+
+          // Looping all files
+          for($i=0;$i<$countFiles;$i++){
+            $filename = $_FILES['file']['name'][$i];
+            $documents[] = $filename;
+
+           $target_path = $target_dir1 .'/' . basename($_FILES['file']['name'][$i]);
+            // $target_file = $target_dir . basename($_FILES['file']['name'][$i]);
+            // Upload file
+            move_uploaded_file($_FILES['file']['tmp_name'][$i],$target_path);
+            $mail->addAttachment($target_path, $_FILES['file']['name'][$i]);    //Optional name
+
+          
+          }
+
+          $docs = json_encode($documents);
+                $sql1234files = "INSERT INTO `documents` ( `personalId` , `path` , `images` )
+                    VALUES (
+                    '$last_id' ,
+                    '$target_dir1' ,
+                    '$docs'
+                    )";
+            mysqli_query($this->database->getConnection(), $sql1234files);
+ 
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = 'Here is the subject';
+    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+    $mail->send();
+
+        echo json_encode($documents).' ID : =='.$last_id;
+
+        // return json_encode($qualifications);
     }
 }

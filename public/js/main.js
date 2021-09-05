@@ -62,7 +62,7 @@ $(window).scroll(function() {
                                     </div>
                                     <div class='form-group col-md-3'>
                                         <span class=' d-inline-flex'>Position held: </span>
-                                        <input type='text' class='form-control' required name='experience[${n + 1}][p.position]' id='p.position-1' placeholder='type here'>
+                                        <input type='text' class='form-control' required name='experience[${n + 1}][position]' id='p.position-1' placeholder='type here'>
                                     </div>
                                     <div class='form-group col-md-3'>
                                         <span class=' d-inline-flex'> Appointment Date: </span>
